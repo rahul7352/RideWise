@@ -76,7 +76,7 @@ public class RideService {
 
     /** ASSIGNED -> COMPLETED; the fare comes from the injected FareStrategy. */
     public FareReceipt completeRide(int rideId) {
-        Ride ride = rides.get(rideId);
+        Ride ride = getRideById(rideId);
         ride.complete(fareStrategy.calculateFare(ride));
         return ride.getFareReceipt().orElseThrow();
     }
